@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sections you link to from the navbar (add id="about", id="project", etc.) */
+section[id] {
+    scroll-margin-top: 90px;
+}
+
+body {
+    background-color: #0B1428;
+    font-family: Arial, sans-serif;
+}
+
+/* ---------- Navbar ---------- */
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 7%;
+    background-color: #0B1428;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo / Name */
+.Navbar h3 {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #8B5CF6, #38BDF8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* Works for both <span> and <a href="#section"> */
+.Navbar nav span,
+.Navbar nav a {
+    color: #CBD5E1;
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.Navbar nav span:hover,
+.Navbar nav a:hover {
+    color: #38BDF8;
+}
+
+/* Underline animation */
+.Navbar nav span::after,
+.Navbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8B5CF6, #38BDF8);
+    transition: width 0.3s ease;
+}
+
+.Navbar nav span:hover::after,
+.Navbar nav a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .Navbar {
+        padding: 18px 5%;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .Navbar h3 {
+        font-size: 21px;
+    }
+
+    .Navbar nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .Navbar nav span,
+    .Navbar nav a {
+        font-size: 13px;
+    }
+}
+
+/* ---------- Hero / Info ---------- */
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 60px 7%;
+    background: #0B1428;
+}
+
+.info img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #8B5CF6;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+    flex-shrink: 0;
+}
+
+.info div {
+    flex: 1;
+    max-width: 650px;
+}
+
+.info h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #8B5CF6, #38BDF8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info h4 {
+    font-size: 20px;
+    margin: 12px 0;
+    color: #38BDF8;
+}
+
+/* Slightly larger than before (was 15px) so it reads well */
+.info p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #CBD5E1;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .info {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 6%;
+        gap: 30px;
+    }
+
+    .info img {
+        width: 190px;
+        height: 190px;
+    }
+
+    .info h2 {
+        font-size: 28px;
+    }
+}
+
+/* ---------- Projects ---------- */
+.Project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    margin: 30px 7%;
+    padding: 25px;
+    color: #CBD5E1;
+    background: #111D35;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 18px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.Project:hover {
+    transform: translateY(-5px);
+    border-color: #8B5CF6;
+}
+
+.Project img {
+    width: 280px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.Project div {
+    flex: 1;
+    padding: 15px;
+}
+
+.Project h3 {
+    font-size: 25px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #F1F5FF;
+}
+
+.Project h5 {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #CBD5E1;
+    margin-bottom: 15px;
+}
+
+.Project span {
+    color: #38BDF8;
+    font-weight: 600;
+    margin-right: 12px;
+    display: inline-block;
+}
+
+/* Works for <button> and for <a class="btn"> links (recommended) */
+.Project button,
+.Project a.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    margin: 8px 8px 0 0;
+    background: linear-gradient(90deg, #8B5CF6, #38BDF8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.Project button:hover,
+.Project a.btn:hover {
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+}
+
+@media (max-width: 768px) {
+    .Project {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 20px 5%;
+        padding: 18px;
+        gap: 15px;
+    }
+
+    .Project img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
+
+    .Project div {
+        padding: 5px;
+    }
+
+    .Project h3 {
+        font-size: 22px;
+    }
+
+    .Project h5 {
+        font-size: 14px;
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 7%;
+    border-top: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+footer a {
+    display: inline-flex;
+}
+
+footer img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+footer img:hover {
+    transform: translateY(-4px);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #38BDF8;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
